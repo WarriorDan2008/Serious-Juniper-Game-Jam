@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     // No idea what this does
     private Vector3 moveInput;
 
+    // rotation of the player
+    float rotation;
+
     // Checks if the player is on the ground
     private bool grounded()
     {
@@ -37,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
         // Collects WASD keyboard keys for movement
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
+        rotation += Input.GetAxis("MouseX") * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, rotation, 0);
         
         // Calculates direction or smth
         Vector3 direction = transform.right * x + transform.forward * z;

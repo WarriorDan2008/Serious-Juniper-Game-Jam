@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TestButton : MonoBehaviour
+public class TestButton : MonoBehaviour, IInteractable
 {
     public AudioSource audioSource;
 

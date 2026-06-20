@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+interface IInteractable
+{
+    public void Interact();
+}
+
 public class Interaction : MonoBehaviour
 {
     public Image crosshair;
@@ -23,7 +28,8 @@ public class Interaction : MonoBehaviour
 
                 if (Input.GetButtonDown("Interact"))
                 {
-                    hit.transform.GetComponent<TestButton>().Interact();
+                    hit.transform.TryGetComponent(out IInteractable interactable);
+                    interactable.Interact();
                 }
             }
         }

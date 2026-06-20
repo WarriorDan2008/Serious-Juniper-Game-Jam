@@ -28,7 +28,6 @@ MonoBehaviour:
   - {fileID: 7833122117494664109}
   m_RendererFeatureMap: ad6b866f10d7b46c
   m_UseNativeRenderPass: 1
-  xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_AssetVersion: 3
   m_PrepassLayerMask:
@@ -74,10 +73,10 @@ MonoBehaviour:
     AfterOpaque: 0
     Source: 1
     NormalSamples: 1
-    Intensity: 0.58
-    DirectLightingStrength: 0.25
-    Radius: 0.3
-    Samples: 1
+    Intensity: 0.5
+    DirectLightingStrength: 1
+    Radius: 1
+    Samples: 0
     BlurQuality: 0
-    Falloff: 100
+    Falloff: 500
     SampleCount: -1

@@ -3,20 +3,27 @@ using UnityEngine.AI;
 
 public class CashierManager : MonoBehaviour
 {
-    private Vector3 spawnpoint = new Vector3(12.1619997f,-0.0485799983f,5.33099985f);
-    public WalkPoints[] walkpoints;
-    public WalkPoints exitPoint;
+    public Vector3 spawnPoint = new Vector3(-7f,-3f,-15f);
+    public Vector3 cashierPoint = new Vector3(0f,-3f,-15f);
+    public Vector3 exitPoint = new Vector3(12f,-3f,-15f);
     public GameObject customerPrefab;
 
     private Customer currentCustomer;
 
-    void Update()
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject createdCustomer = Instantiate(customerPrefab, spawnpoint, Quaternion.identity);
+        CreateCustomer();
+    }
+
+    void CreateCustomer()
+    {
+            if(currentCustomer != null)
+            {
+                currentCustomer.StartCoroutine(currentCustomer.DIE(exitPoint));
+            }
+            GameObject createdCustomer = Instantiate(customerPrefab, spawnPoint, Quaternion.identity);
             currentCustomer = createdCustomer.GetComponent<Customer>();
             currentCustomer.cashierManagerScript = this;
-        }
+            currentCustomer.SetDestination(cashierPoint);
     }
 }

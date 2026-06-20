@@ -1,37 +1,66 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class Customer : MonoBehaviour
 {
-    private WalkPoints currentWalkpoint;
     public CashierManager cashierManagerScript;
-    private NavMeshAgent agent;
 
-    public void SetWalkpoint(WalkPoints walkpoint)
-    {
-        currentWalkpoint = walkpoint;
-    }
+    public NavMeshAgent agent;
 
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
+    public BoughtItemSO[] ItemTemplates;
+    public GameObject boughtItem;
 
-        currentWalkpoint = cashierManagerScript.walkpoints[3];
-    }
-
-    private void Update()
+    public float cooldownTime = 2f;
+    float cooldownTimer = 0f;
+    public bool ReachedDestinationOrGaveUp()
     {
 
-        for (int i = 0; i < cashierManagerScript.walkpoints.Length; i++)
+        if (!agent.pathPending)
         {
-            if (cashierManagerScript.walkpoints[i].occupied == false)
+            if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                currentWalkpoint.occupied = false;
-                agent.SetDestination(cashierManagerScript.walkpoints[i].position);
-                cashierManagerScript.walkpoints[i].occupied = true;
-                currentWalkpoint = cashierManagerScript.walkpoints[i];
-                break;
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    return true;
+                }
             }
         }
+
+        return false;
+    }
+
+    public void SetDestination(Vector3 destination)
+    {
+        agent.SetDestination(destination);
+    }
+
+    public IEnumerator DIE(Vector3 destination)
+    {
+        agent.SetDestination(destination);
+        yield return new WaitUntil(() => ReachedDestinationOrGaveUp());
+        Destroy(gameObject);
+        yield return null;
+    }
+
+    void Update()
+    {
+        ReachedDestinationOrGaveUp();
+        if(ReachedDestinationOrGaveUp())
+        {
+            cooldownTimer -= 1f * Time.deltaTime;
+            if(cooldownTimer <= 0f)
+            {
+                SpawnItem();
+                cooldownTimer = cooldownTime;
+            }
+        }
+    }
+
+    void SpawnItem()
+    {
+        GameObject item = Instantiate(boughtItem, new Vector3(2f, -1f, Random.Range(-6.25f, -5.75f)), Quaternion.identity);
+        item.GetComponent<BoughtItem>().boughtItem = ItemTemplates[Random.Range(0, ItemTemplates.Length)];
+
     }
 }

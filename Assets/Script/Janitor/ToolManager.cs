@@ -6,6 +6,8 @@ public class ToolManager : MonoBehaviour
     public GameObject[] tools;
     public int selectedTool = 0;
     public AudioSource mopAudio;
+    public AudioSource vacuumAudio;
+    public AudioSource trashAudio;
 
     public float interactionRange;
 
@@ -52,6 +54,48 @@ public class ToolManager : MonoBehaviour
             else
             {
                 mopAudio.volume = 0f;
+            }
+        }
+
+        // Vacuum Controls
+        if (selectedTool == 1)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, interactionRange))
+                {
+                    if (hit.transform.CompareTag("Vacuumable"))
+                    {
+                        hit.transform.TryGetComponent<Vacuumable>(out Vacuumable vacuumable);
+                        vacuumable.Vacuum(selectedTool);
+                    }
+                }
+
+                vacuumAudio.volume = 100f;
+            }
+            else
+            {
+                vacuumAudio.volume = 0f;
+            }
+        }
+
+        // Trash Bag Controls
+        if (selectedTool == 2)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, interactionRange))
+                {
+                    if (hit.transform.CompareTag("Trash"))
+                    {
+                        hit.transform.TryGetComponent<Trash>(out Trash trash);
+                        trash.Grab(selectedTool);
+
+                        trashAudio.Play();
+                    }
+                }
             }
         }
     }

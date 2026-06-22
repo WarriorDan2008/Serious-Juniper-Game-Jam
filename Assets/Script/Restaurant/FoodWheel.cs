@@ -1,40 +1,32 @@
 using UnityEngine;
+using System.Collections;
+using DG.Tweening;
+
 
 public class FoodWheel : MonoBehaviour
 {
-    public float rotationAngle = 90f;
-    public float rotationSpeed = 5f;
+    float y;
+    public float TransitionSpeed = 0.5f;
 
-    public KeyCode rotateKey = KeyCode.R;
-    private Quaternion targetRotation;
-
-    private bool isRotating = false;
-   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        targetRotation = transform.rotation;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(rotateKey) && !isRotating)
+       if (Input.GetKeyDown(KeyCode.D))
         {
-            targetRotation *= Quaternion.Euler(rotationAxis * rotationAngle);
-            isRotating = true;
+            y += 90f;
         }
 
-        if (isRotating)
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.rotation = Quarternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-
-            if (Quaternion.Angle(transform.rotation, targetRotation) <0.1f)
-            {
-                transform.rotation = targetRotation;
-                isRotating = false;
-            }
+            y -= 90f;
         }
+        transform.DORotate(new Vector3(15, y, 0), TransitionSpeed);
     }
+    
 }

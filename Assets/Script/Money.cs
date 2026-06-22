@@ -4,7 +4,7 @@ using TMPro;
 public class Money : MonoBehaviour
 {
     public TMP_Text cashText;
-    private int cashTotal = 0;
+    private float cashTotal = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,13 +17,12 @@ public class Money : MonoBehaviour
     {
         
     }
-<<<<<<< Updated upstream
+
 
     public void AddCash(float cashAmount)
     {
         cashTotal += cashAmount;
         cashText.text = "Total Cash:   " + cashTotal.ToString();
     }
-=======
->>>>>>> Stashed changes
+
 }

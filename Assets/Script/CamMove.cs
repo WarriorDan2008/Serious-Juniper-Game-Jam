@@ -6,9 +6,13 @@ public class CamMove : MonoBehaviour
     public float upClamp;
     public Transform camRoot;
 
-    void Update()
+    void LateUpdate()
     {
         transform.position = camRoot.position;
+    }
+
+    void Update()
+    {
         y += Input.GetAxisRaw("MouseY") * Time.deltaTime;
         x += Input.GetAxisRaw("MouseX") * Time.deltaTime;
         y = Mathf.Clamp(y, -90, 60);

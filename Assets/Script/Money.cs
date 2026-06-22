@@ -17,10 +17,13 @@ public class Money : MonoBehaviour
     {
         
     }
+<<<<<<< Updated upstream
 
-    public void AddCash()
+    public void AddCash(float cashAmount)
     {
-        cashTotal++;
+        cashTotal += cashAmount;
         cashText.text = "Total Cash:   " + cashTotal.ToString();
     }
+=======
+>>>>>>> Stashed changes
 }

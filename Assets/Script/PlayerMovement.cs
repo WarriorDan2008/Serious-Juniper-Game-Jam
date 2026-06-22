@@ -6,16 +6,18 @@ public class PlayerMovement : MonoBehaviour
 
     // No idea what this does
     private Vector3 moveInput;
+        private Vector3 moveDirection;
 
     // rotation of the player
     float rotation;
 
+    float maxSlopAngle = 45f;
+
     // Checks if the player is on the ground
     private bool grounded()
     {
-        RaycastHit hit;
-        
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.1f))
+
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), Vector3.down, 1f))
         {
             rb.linearDamping = 5;
             return true;
@@ -23,11 +25,24 @@ public class PlayerMovement : MonoBehaviour
         rb.linearDamping = 0;
         return false;
     }
+    RaycastHit slopeHit;
 
     [Header("Movement")]
-    public float movementSpeed;
+    public float walkingSpeed;
     public float runningSpeed;
     public float jumpForce;
+
+
+    bool onSlope()
+    {
+        Debug.DrawRay(transform.position, Vector3.down, Color.red);
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 1.5f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopAngle && angle != 0;
+        }
+        return false;
+    }
 
     void Start()
     {
@@ -37,51 +52,49 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Collects WASD keyboard keys for movement
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
-        rotation += Input.GetAxis("MouseX") * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(0, rotation, 0);
-        
-        // Calculates direction or smth
-        Vector3 direction = transform.right * x + transform.forward * z;
-        moveInput = direction.normalized;
-
         // Runs the grounded function
         grounded();
+        // Runs the onSlope function
+        onSlope();
+        // Collects WASD keyboard keys for movement
+        moveInput = new Vector3(Input.GetAxisRaw("Horizontal"),0,Input.GetAxisRaw("Vertical")) * Time.deltaTime;
+        rotation += Input.GetAxis("MouseX") * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, rotation, 0);
+        // Calculates direction or smth
+        Vector3 direction = transform.right * moveInput.x + transform.forward * moveInput.z;
+        if (onSlope())
+        {
+            moveDirection = Vector3.ProjectOnPlane(direction.normalized, slopeHit.normal).normalized;
+            //rb.useGravity = false;
+        }
+        else
+        {
+            moveDirection = direction.normalized;
+            //rb.useGravity = true;
+        }
+        if(Input.GetButton("Sprint") && moveInput.magnitude > 0)
+        {
+            moveDirection = moveDirection * runningSpeed;
+        }
+        else
+        {
+            moveDirection = moveDirection * walkingSpeed;
+        }
 
         // Checks if Space is pressed and if you're on the ground
         if (Input.GetButtonDown("Jump") && grounded())
         {
             // Adds force to make the player jump
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
-        
     }
-
     void FixedUpdate()
     {
         // Checks if both horizontal and vertical input is zero and if the player is on the ground so you can't air strafe
-        if (moveInput.magnitude > 0 && grounded())
+        if (moveDirection.magnitude > 0 && grounded())
         {
-            // --- The commented code features more snappier movement, comment the current code and uncomment the commented code for snappier movement ---
-
-            // Vector3 velocity = new Vector3(moveInput.x, rb.linearVelocity.y, moveInput.z);
-
-            if (Input.GetButton("Run"))
-            {
-                rb.AddForce(moveInput * runningSpeed, ForceMode.VelocityChange);
-                //rb.linearVelocity = velocity * runningSpeed;
-            }
-            else
-            {
-                rb.AddForce(moveInput * movementSpeed, ForceMode.VelocityChange);
-                //rb.linearVelocity = velocity * movementSpeed;
-            }
+            //rb.AddForce(moveInput, ForceMode.VelocityChange);
+            rb.AddForce(moveDirection, ForceMode.VelocityChange);
         }
-        //else
-        //{
-            //rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
-        //}
     }
 }

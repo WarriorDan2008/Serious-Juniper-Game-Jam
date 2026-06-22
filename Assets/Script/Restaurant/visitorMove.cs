@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class Spawn : MonoBehaviour
+public class visitorMove : MonoBehaviour
 {
+    public float speed = 2.0f;
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,6 +14,6 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector3.forward * Time.deltaTime * speed); 
     }
 }

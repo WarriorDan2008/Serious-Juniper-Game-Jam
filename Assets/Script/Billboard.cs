@@ -1,17 +1,18 @@
+using DG.Tweening;
 using UnityEngine;
-using UnityEngine.AI;
 public class Billboard : MonoBehaviour
 {
-    private Transform cameraPos;
+    Transform cameraPos;
+
 
     void Start()
     {
         cameraPos = GameObject.Find("Main Camera").transform;
     }
     
-    void Update()
+    void LateUpdate()
     {
-        transform.LookAt(cameraPos);
-        transform.Rotate(0, 180, 0);
+        transform.LookAt(cameraPos.position, Vector3.up);
+        transform.Rotate(0,-180,0);
     }
 }

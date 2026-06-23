@@ -3,16 +3,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
-
     // No idea what this does
     private Vector3 moveInput;
-        private Vector3 moveDirection;
-
+    private Vector3 moveDirection;
     // rotation of the player
     float rotation;
-
     float maxSlopAngle = 45f;
-
     // Checks if the player is on the ground
     private bool grounded()
     {
@@ -26,13 +22,10 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
     RaycastHit slopeHit;
-
     [Header("Movement")]
     public float walkingSpeed;
     public float runningSpeed;
     public float jumpForce;
-
-
     bool onSlope()
     {
         Debug.DrawRay(transform.position, Vector3.down, Color.red);
@@ -43,13 +36,11 @@ public class PlayerMovement : MonoBehaviour
         }
         return false;
     }
-
     void Start()
     {
         // Assigns the rigidbody
         rb = GetComponent<Rigidbody>();
     }
-
     void Update()
     {
         // Runs the grounded function
@@ -57,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         // Runs the onSlope function
         onSlope();
         // Collects WASD keyboard keys for movement
-        moveInput = new Vector3(Input.GetAxisRaw("Horizontal"),0,Input.GetAxisRaw("Vertical")) * Time.deltaTime;
+        moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * Time.deltaTime;
         rotation += Input.GetAxis("MouseX") * Time.deltaTime;
         transform.rotation = Quaternion.Euler(0, rotation, 0);
         // Calculates direction or smth
@@ -72,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = direction.normalized;
             //rb.useGravity = true;
         }
-        if(Input.GetButton("Sprint") && moveInput.magnitude > 0)
+        if (Input.GetButton("Sprint") && moveInput.magnitude > 0)
         {
             moveDirection = moveDirection * runningSpeed;
         }
@@ -80,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = moveDirection * walkingSpeed;
         }
-
         // Checks if Space is pressed and if you're on the ground
         if (Input.GetButtonDown("Jump") && grounded())
         {

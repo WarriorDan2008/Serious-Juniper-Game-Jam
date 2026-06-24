@@ -13,6 +13,10 @@ public class Interaction : MonoBehaviour
 
     public float interactionRange;
 
+    EggSO heldegg;
+
+    public Image HeldImage;
+
     void Update()
     {
         crosshair.sprite = crosshairImages[0];

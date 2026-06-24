@@ -26,7 +26,7 @@ public class BoughtItem : MonoBehaviour
 
     void Update()
     {
-        rb.AddForce(new Vector3(-7f, 0f, 0f), ForceMode.Acceleration);
+        rb.AddForce(new Vector3(-25f, 0f, 0f) * Time.deltaTime, ForceMode.VelocityChange);
         destroyTimer -= 1f * Time.deltaTime;
         if (destroyTimer <= 0f)
         {

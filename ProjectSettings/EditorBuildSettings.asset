@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EggHunt.unity
     guid: cb807c58b0d07ca40990aa35fcdacebd
+  - enabled: 1
+    path: Assets/Scenes/Janitor.unity
+    guid: 6e1b6198123953140928207428541205
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

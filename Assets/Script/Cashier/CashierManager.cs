@@ -3,9 +3,9 @@ using UnityEngine.AI;
 
 public class CashierManager : MonoBehaviour
 {
-    public Vector3 spawnPoint = new Vector3(-7f, -3f, -15f);
-    public Vector3 cashierPoint = new Vector3(0f, -3f, -15f);
-    public Vector3 exitPoint = new Vector3(12f, -3f, -15f);
+    public Vector3 spawnPoint = new Vector3(-7f, 1f, -15f);
+    public Vector3 cashierPoint = new Vector3(0f, 1f, -15f);
+    public Vector3 exitPoint = new Vector3(12f, 1f, -15f);
     public GameObject customerPrefab;
     private Customer currentCustomer;
     float spawnTimer;

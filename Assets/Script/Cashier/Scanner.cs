@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class Scanner : MonoBehaviour
 {
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,7 +22,14 @@ public class Scanner : MonoBehaviour
                     BoughtItem boughtItemScript = hit.collider.GetComponent<BoughtItem>();
                     if (boughtItemScript != null)
                     {
-                        Debug.Log("Scanned item: " + boughtItemScript.name + ", Price: " + boughtItemScript.itemPrice + ", Is Good: " + boughtItemScript.isGood);
+                        if(boughtItemScript.isGood)
+                        {
+                            Money.instance.Add(boughtItemScript.itemPrice);
+                        }
+                        else if (!boughtItemScript.isGood)
+                        {
+                            Money.instance.Add(-boughtItemScript.itemPrice);
+                        }
                         Destroy(hit.collider.gameObject);
                     }
                 }

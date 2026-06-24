@@ -1,28 +1,51 @@
 using UnityEngine;
 using TMPro;
-
 public class Money : MonoBehaviour
 {
     public TMP_Text cashText;
-    private float cashTotal = 0;
+    private float totalCash = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static Money instance { get; private set; }
+
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        instance = this;
+    }
+
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
+        if (PlayerPrefs.HasKey("Cash"))
+        {
+            Load();
+        }
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        cashText.text = "$" + totalCash.ToString();
     }
-
-
-    public void AddCash(float cashAmount)
+    public void Add(float cashAmount)
     {
-        cashTotal += cashAmount;
-        cashText.text = "Total Cash:   " + cashTotal.ToString();
-    }
+        if (totalCash >= 0)
+        {
+            totalCash += cashAmount;
+        }
+        else
+        {
+            totalCash = 0;
+        }
 
+    }
+    public void Save()
+    {
+        PlayerPrefs.SetFloat("Cash", totalCash);
+    }
+    void Load()
+    {
+        totalCash = PlayerPrefs.GetFloat("Cash");
+    }
 }

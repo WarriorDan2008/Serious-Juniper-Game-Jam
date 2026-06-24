@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine   .UI;
+using UnityEngine.       UI;
 
 public class BoughtItem : MonoBehaviour
 {
@@ -9,10 +9,11 @@ public class BoughtItem : MonoBehaviour
     SpriteRenderer image;
     Rigidbody rb;
 
-    float destroyTimer = 2f;
+    float destroyTimer = 4f;
 
     void Start()
     {
+        gameObject.AddComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
         image = GetComponent<SpriteRenderer>();
         if (boughtItem != null)
@@ -25,9 +26,10 @@ public class BoughtItem : MonoBehaviour
 
     void Update()
     {
-        rb.AddForce(new Vector3(-5f, 0f, 0f) * 2f, ForceMode.Acceleration);
+        rb.AddForce(new Vector3(-25f, 0f, 0f) * Time.deltaTime, ForceMode.VelocityChange);
         destroyTimer -= 1f * Time.deltaTime;
-        if(destroyTimer <= 0f)        {
+        if (destroyTimer <= 0f)
+        {
             Destroy(gameObject);
         }
     }

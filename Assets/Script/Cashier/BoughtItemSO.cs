@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-[CreateAssetMenu(fileName = "BoughtItem", menuName = "Cashier/BoughtItem")]
+[CreateAssetMenu(fileName = "BoughtItem")]
 public class BoughtItemSO : ScriptableObject
 {
     public string itemName;

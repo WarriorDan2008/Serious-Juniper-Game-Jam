@@ -59,7 +59,7 @@ public class Customer : MonoBehaviour
 
     void SpawnItem()
     {
-        GameObject item = Instantiate(boughtItem, new Vector3(2f, -1f, Random.Range(-6.25f, -5.75f)), Quaternion.identity);
+        GameObject item = Instantiate(boughtItem, new Vector3(2f, 2f, Random.Range(-6.25f, -5.75f)), Quaternion.identity);
         item.GetComponent<BoughtItem>().boughtItem = ItemTemplates[Random.Range(0, ItemTemplates.Length)];
 
     }

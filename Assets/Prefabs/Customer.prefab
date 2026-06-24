@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7591095401181134429}
   - component: {fileID: 3903041447800480634}
-  - component: {fileID: 8842634356001630407}
+  - component: {fileID: 7222807066728468216}
   - component: {fileID: 2730790823452350961}
   - component: {fileID: -5574448032720235241}
+  - component: {fileID: 4896505689925673850}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 850849557779526472}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.72287, y: 0.31510997, z: 20.26157}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,17 +85,17 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: a9ba5761d2010414a9d3b755d0cead31, type: 3}
+  m_Sprite: {fileID: 116452626, guid: 2da072f04a99ed8498771aa273b67685, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.99, y: 4.82}
+  m_Size: {x: 3.03, y: 4.85}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!195 &8842634356001630407
+--- !u!195 &7222807066728468216
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,17 +104,17 @@ NavMeshAgent:
   m_GameObject: {fileID: 850849557779526472}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 0
+  m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 4.75
-  m_BaseOffset: 2.4
+  m_Height: 3.5
+  m_BaseOffset: 1.75
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &2730790823452350961
@@ -141,11 +142,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Customer
   cashierManagerScript: {fileID: 0}
-  agent: {fileID: 8842634356001630407}
+  agent: {fileID: 7222807066728468216}
   ItemTemplates:
   - {fileID: 11400000, guid: 20dfe78b089114841becbaa19e6c1be4, type: 2}
   - {fileID: 11400000, guid: be1d4dda2f0445e4f994a54e3795264d, type: 2}
   - {fileID: 11400000, guid: a13fdcade69089b48a35728ae8577622, type: 2}
+  - {fileID: 11400000, guid: 1d3acb3a06b1e4b4d8cc883b04b3baed, type: 2}
+  - {fileID: 11400000, guid: 92c3e2bea4b13a2498e5983d17191b41, type: 2}
   - {fileID: 11400000, guid: e7ee260603128b44b86eac3943776764, type: 2}
+  - {fileID: 11400000, guid: 38fc81ae2fe6cbc4bba3616e468d958b, type: 2}
+  - {fileID: 11400000, guid: 4e9b7c933cd58254981759a39b1e7513, type: 2}
+  - {fileID: 11400000, guid: dd6c09b4fdfabb241948e5d332cb7eb9, type: 2}
+  - {fileID: 11400000, guid: bca2db8fa6a118c45b0865015ca30b64, type: 2}
+  - {fileID: 11400000, guid: 831f23788226b5c48ae833b07978afc0, type: 2}
+  - {fileID: 11400000, guid: fe8bb71cda61b814fb9b78bed46b2547, type: 2}
   boughtItem: {fileID: 719058004340175998, guid: 3d38ba5169b623841a835858fc51bb9b, type: 3}
   cooldownTime: 0.5
+--- !u!95 &4896505689925673850
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850849557779526472}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8d00ab4d853893419c2d265ed166ca9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

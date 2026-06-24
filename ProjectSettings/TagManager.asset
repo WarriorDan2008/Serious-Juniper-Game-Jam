@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Interactable
   - Item
-  - Counter
   - Stain
   - Vacuumable
   - Trash

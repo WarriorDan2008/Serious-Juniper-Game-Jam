@@ -788,7 +788,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 0b35823fc4897b04f83219f5403b52f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15308,9 +15308,17 @@ MonoBehaviour:
   m_Mesh: {fileID: 441175293}
   m_VersionIndex: 28793
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 64000000
+  m_SelectedEdges:
+  - a: 400
+    b: 401
+  - a: 402
+    b: 400
+  - a: 401
+    b: 403
+  - a: 403
+    b: 402
+  m_SelectedVertices: 90010000910100009201000093010000
 --- !u!4 &1337089802
 Transform:
   m_ObjectHideFlags: 0
@@ -15961,6 +15969,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1586e907d10161e4c8ddd7d27f50995a, type: 3}
   - {fileID: 21300000, guid: 7f801a0854bee2c48976505bf7b70d4a, type: 3}
   interactionRange: 2.5
+  HeldImage: {fileID: 0}
 --- !u!1 &4327814968072833554
 GameObject:
   m_ObjectHideFlags: 0

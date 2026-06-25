@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-
-
 [CreateAssetMenu(fileName = "BoughtItem")]
 public class BoughtItemSO : ScriptableObject
 {

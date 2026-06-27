@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveInput;
     private Vector3 moveDirection;
     // rotation of the player
-    float rotation;
+    public float rotation;
     float maxSlopAngle = 45f;
     // Checks if the player is on the ground
     private bool grounded()
@@ -49,8 +49,6 @@ public class PlayerMovement : MonoBehaviour
         onSlope();
         // Collects WASD keyboard keys for movement
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * Time.deltaTime;
-        rotation += Input.GetAxis("MouseX") * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(0, rotation, 0);
         // Calculates direction or smth
         Vector3 direction = transform.right * moveInput.x + transform.forward * moveInput.z;
         if (onSlope())

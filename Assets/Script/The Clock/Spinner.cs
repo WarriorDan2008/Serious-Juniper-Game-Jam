@@ -71,7 +71,7 @@ public class Spinner : MonoBehaviour, IInteractable
     {
         ClockNumber targetclocknum = clockNumbers[targetSlice - 1];
         isSpinning = true;
-        float targetAngle = -targetclocknum.rotation;
+        float targetAngle = targetclocknum.rotation;
         float totalSpinAmount = (360f * extraSpins) + targetAngle;
         float endAngle = currentAngle - totalSpinAmount;
         float elapsedTime = 0f;

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0.66
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1191,8 +1191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23cead33cada1884e9a02e19e49c1c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CamMove
+  sensitivity: 0
   upClamp: 60
   camRoot: {fileID: 542456069688601116}
+  playerMovement: {fileID: 0}
 --- !u!1 &4124153413443675722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0bd8e1674688c49a150ad1bfdd889b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  rotation: 0
   walkingSpeed: 1
   runningSpeed: 1.5
   jumpForce: 10
@@ -1606,6 +1609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51332c376cfb40147977d62103570006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
+  panel: {fileID: 0}
+  camMove: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

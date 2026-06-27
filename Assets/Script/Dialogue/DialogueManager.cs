@@ -7,6 +7,8 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance { get; private set; }
     public Queue<string> DialogueLines;
 
+    public int SceneToLoad = 1;
+
     public TMP_Text DialogueText;
     void Awake()
     {
@@ -18,6 +20,7 @@ public class DialogueManager : MonoBehaviour
     }
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
         DialogueLines = new Queue<string>();
     }
 
@@ -48,6 +51,6 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene(SceneToLoad);
     }
 }

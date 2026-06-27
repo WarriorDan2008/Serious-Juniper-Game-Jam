@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b9e1030fd4a6847bee4883a840fc56, type: 3}
   m_Name: 3
   m_EditorClassIdentifier: Assembly-CSharp::ClockNumber
-  rotation: 135
-  scene: Restaurant
+  rotation: 90
+  scene: DialogueHome

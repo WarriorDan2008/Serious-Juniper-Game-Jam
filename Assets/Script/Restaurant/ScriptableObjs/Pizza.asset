@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pizza
   m_EditorClassIdentifier: Assembly-CSharp::FoodSO
   foodName: Pizza
-  sprite: {fileID: 21300000, guid: a9aa5546ade56b142bdb363754b2b0be, type: 3}
+  sprite: {fileID: 21300000, guid: fad9cf324c3dcba43add68efd4b56d66, type: 3}

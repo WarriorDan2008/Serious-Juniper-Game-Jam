@@ -6,19 +6,43 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/ProLogue.unity
+    guid: 24d1269615f777642b7a294f652e969e
+  - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 1c2047a112cc8904290b9936bd1ca5ba
+  - enabled: 1
+    path: Assets/Scenes/DialogueCafe.unity
+    guid: e6061eeba7ca32241ac3c5c631b9a8e2
   - enabled: 1
     path: Assets/Scenes/Cashier.unity
     guid: ed92bcfe5b40faa43ad7712a2bf1ca0d
   - enabled: 1
-    path: Assets/Scenes/Restaurant.unity
-    guid: afd2afd93fe98f644b34bfe161f37305
+    path: Assets/Scenes/DialogueHome.unity
+    guid: 203c03b535eb632409375be5f1028e97
+  - enabled: 1
+    path: Assets/Scenes/Janitor.unity
+    guid: 6e1b6198123953140928207428541205
+  - enabled: 1
+    path: Assets/Scenes/DialogueRestaurant.unity
+    guid: e214e0b8cb6b95a41ade69d3e97ffedb
+  - enabled: 1
+    path: Assets/Scenes/DialogueGym.unity
+    guid: dcda33a8b26bda54897c787ebde8f377
   - enabled: 1
     path: Assets/Scenes/EggHunt.unity
     guid: cb807c58b0d07ca40990aa35fcdacebd
   - enabled: 1
-    path: Assets/Scenes/Janitor.unity
-    guid: 6e1b6198123953140928207428541205
+    path: Assets/Scenes/DialogueHospital.unity
+    guid: d880b79de42d585409af3386f6619a2c
+  - enabled: 1
+    path: Assets/Scenes/Restaurant.unity
+    guid: afd2afd93fe98f644b34bfe161f37305
+  - enabled: 1
+    path: Assets/Scenes/SceneTrueEnding.unity
+    guid: 6cc59e933c8b1204daa0488cbc5661d8
+  - enabled: 1
+    path: Assets/Scenes/Epilogue.unity
+    guid: 4d8a650250fe8c44ea92e3381d39a456
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

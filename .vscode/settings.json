@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Serious Juniper Game Jam.slnx",
+    "dotnet.defaultSolution": "Serious-Juniper-Game-Jam.slnx",
     "editor.acceptSuggestionOnEnter": "on"
 }

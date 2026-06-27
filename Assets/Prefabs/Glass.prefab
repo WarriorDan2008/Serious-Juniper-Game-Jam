@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a893a86ce5750a04a906e5b98b137ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vacuumable
+  money: 20

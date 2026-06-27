@@ -1952,6 +1952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750de36f0197ab14ea0c9d5f775b628d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spinner
+  a: {fileID: 1883687138}
   clockNumbers:
   - {fileID: 11400000, guid: 803d86aa64f30c740b92841c395ff712, type: 2}
   - {fileID: 11400000, guid: e967b46d29be0f24d9c0b380234318e3, type: 2}

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Spinner : MonoBehaviour, IInteractable
 {
+    public AudioSource a;
     public ClockNumber[] clockNumbers;
     public Transform SpinnerArrow;
     int extraSpins = 3;
@@ -16,6 +17,7 @@ public class Spinner : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        a.Play();
         switch (PlayerPrefs.GetInt("WheelSpunAmount"))
         {
             case 0:
@@ -47,9 +49,8 @@ public class Spinner : MonoBehaviour, IInteractable
                 break;
             case 9:
                 ClockNumber clocknum12 = clockNumbers[11];
-                if (PlayerPrefs.GetFloat("Cash") > 1000f)
+                if (PlayerPrefs.GetFloat("Cash") >= 1000f)
                 {
-
                     clocknum12.scene = "SceneTrueEnding";
                 }
                 else

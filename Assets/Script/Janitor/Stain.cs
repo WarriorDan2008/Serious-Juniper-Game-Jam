@@ -3,6 +3,7 @@ using UnityEngine;
 public class Stain : MonoBehaviour
 {
     private float stainHealth = 1f;
+    public int money;
     private SpriteRenderer spriteRenderer;
 
     void Start()
@@ -24,6 +25,7 @@ public class Stain : MonoBehaviour
 
         if (stainHealth <= 0)
         {
+            Money.instance.Add(Random.Range(money - 5, money + 10));
             Destroy(gameObject);
         }
     }

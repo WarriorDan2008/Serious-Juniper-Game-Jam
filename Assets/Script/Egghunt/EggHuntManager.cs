@@ -10,6 +10,8 @@ public class EggHuntManager : MonoBehaviour
     public int minAmountToSpawn, MaxAmountToSpawn;
     EggSO eggtoget;
     public SpriteRenderer wantedeggImage;
+
+    public int money = 40;
     void Awake()
     {
         StartCoroutine(Spawn());
@@ -36,7 +38,7 @@ public class EggHuntManager : MonoBehaviour
     {
         if(insertedEgg.eggIndex == eggtoget.eggIndex)
         {
-            Money.instance.Add(Random.Range(5, 25));
+            Money.instance.Add(Random.Range(40 - 10, 40 + 15));
             GenerateNewEgg();
         }
     }

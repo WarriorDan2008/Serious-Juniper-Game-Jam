@@ -5,6 +5,8 @@ public class Vacuumable : MonoBehaviour
     private float stainHealth = 1f;
     private SpriteRenderer spriteRenderer;
 
+    public int money;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -24,6 +26,7 @@ public class Vacuumable : MonoBehaviour
 
         if (stainHealth <= 0)
         {
+            Money.instance.Add(Random.Range(money - 5, money + 10));
             Destroy(gameObject);
         }
     }

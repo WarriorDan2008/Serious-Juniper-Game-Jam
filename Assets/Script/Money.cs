@@ -32,9 +32,10 @@ public class Money : MonoBehaviour
     {
         if (totalCash >= 0)
         {
-            if (cashAmount > 0)
+            totalCash += cashAmount;
+            if(totalCash < 0)
             {
-                totalCash += cashAmount;
+                totalCash = 0;
             }
         }
         else

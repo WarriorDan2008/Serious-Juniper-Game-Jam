@@ -9,13 +9,6 @@ public class GiveFood : MonoBehaviour
 
     public FoodSO heldFood;
     public Image heldFoodImage;
-
-
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -35,11 +28,7 @@ public class GiveFood : MonoBehaviour
                 else if (hit.transform.CompareTag("Visitor"))
                 {
                     visitorMove v = hit.transform.GetComponent<visitorMove>();
-                    
-                    if (v.wantedFood.foodName == heldFood.foodName)
-                    {
-                        Destroy(v.gameObject);
-                    }
+                    v.AcceptFood(heldFood);
                 }
             }
         }

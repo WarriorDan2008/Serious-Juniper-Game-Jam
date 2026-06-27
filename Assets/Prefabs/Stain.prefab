@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f2fabef7df0a24989cff7d39ef80b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stain
+  money: 10
